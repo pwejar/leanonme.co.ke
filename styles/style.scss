@@ -1,0 +1,218 @@
+@import '_tonatov';
+@import '_tonatov';
+$primaryCOlor: black;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    #meBack{
+        position: absolute;
+        top: 1vh;
+        z-index: 4;
+        width: 100vw;
+        @media screen and (max-width: 700px) {
+            display: none;
+          }
+    }
+    .menu{
+        display: grid;
+        z-index: 5;
+        margin-top: 4vh;
+        position: sticky;
+        grid-template-columns: 1fr 1fr;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to right, rgba(255,255,255,0),rgba(255,255,255,0.1), rgba(0,0,0,1),rgba(0,0,0,1));
+        
+    }
+    .menu2 {
+        position: sticky;
+        width: 100vw;
+        height: 3px;
+      
+        top: 0;
+        left: 0;
+        z-index: 6;
+        background: linear-gradient(to right, rgba(255,255,255,0),rgba(255,255,255,0),rgba(255,255,255,0), rgba(255, 0, 0,1),rgba(255, 0, 0,1));
+    }
+    .background{
+        margin-top: -4vh;
+        background-image: url('../assets/kidos.jpg');
+        background-position: center center;
+        background-size: cover;
+        min-height: 104vh;
+        z-index: -10;
+        min-width: 100vw;
+        position: absolute;
+        background-color: rgba(red,0.5);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+    .landing{
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        padding: 0 5vw;
+        background: linear-gradient(to bottom left, rgba(255, 0, 0, 0), rgb(49, 3, 3));
+        @media screen and (max-width: 700px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 10vh 30vh;
+            padding-top: 40vh;
+        }
+        .slides{
+            transition: all 0.5s ease-in-out;
+            float: left;
+            width: 30vw;
+            box-shadow: 0 0 20px 0 rgba($color: #a8a8a8, $alpha: .1),
+                    0 0 10px 0 rgba($color: #838383, $alpha: .9);
+            @media screen and (max-width: 700px) {
+                width: 70vw;
+                align-self: center;
+                margin: auto auto;
+            }
+            &:hover{
+                .back{
+                    transform: perspective(700px) rotateX(0deg);
+                   
+                }
+                .front{
+                    transform: perspective(700px) rotateX(-180deg);
+                  
+                }
+            }
+            .slide{
+                position: absolute;
+                width: 30vw;
+                padding: 1vw;
+                display: grid;
+                border-radius: 5px;
+                grid-template-columns: 1fr 1fr;
+                background-color: rgba(230, 230, 230,.7);
+                .imgio{
+                    width: 10vw;
+                    margin: auto auto;
+                    @media screen and (max-width: 700px) {
+                        width: 30vw;
+                    }
+                }
+                @media screen and (max-width: 700px) {
+                    width: 70vw;
+                }
+            }
+            .front{
+                transform: perspective(700px) rotateX(0deg);
+                backface-visibility: hidden;
+                transition: transform .5s linear 0s;
+            }
+            .back{
+                transform: perspective(700px) rotateX(180deg);
+                backface-visibility: hidden;
+                transition: transform .5s linear 0s;
+            }
+        }
+        .welcomeText{
+            color: whitesmoke;
+            text-align: center;
+            font-size: 4vw;
+            height: fit-content;
+            @media screen and (max-width: 700px) {
+                grid-row: 1/2;
+                margin-bottom: 0;
+                font-size: 8vw;
+            }
+        }
+    }
+    .objectives{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: $primaryCOlor;
+        color: rgb(189, 189, 189);
+        width: 100vw;
+        padding: 2vw;
+        @media screen and (max-width: 700px) {
+            grid-template-columns: 1fr;  
+        }
+        p{
+            grid-column: 1/3;
+            text-align: center;
+            font-size: 2vw;
+            position: sticky;
+            top: 2vh;
+            @media screen and (max-width: 700px) {
+                grid-column: 1/2; 
+                font-size: 4vw; 
+            }
+        }
+        .coolCards{
+            display: grid;
+            grid-template-columns: 5fr 2fr;
+            column-gap: 7px;
+            width: 80%;
+            opacity: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgb(27, 26, 26));
+            color: #000;
+            align-self: center;
+            margin: 3vh auto;
+            text-align: justify;
+            padding: 1vw;
+            border-radius: 5px;
+            transition: 0.5s all ease-in-out;
+            height: 25vh;
+            overflow: hidden;
+            @media screen and (max-width: 700px) {
+                min-height: 100px;
+                grid-template-columns: 1fr;
+            }
+            .imagg{
+                position: relative;
+                overflow: hidden;
+                img{
+                    height: 110%;
+                    position: absolute;
+                    left: 0;
+                    @media screen and (max-width: 700px) {
+                        position: relative;
+                        width: 100%;
+                        height: auto;
+                        min-height: 20px;
+                        max-height: 200%;
+                        transform: translateY(-20%);
+                    }
+                }
+            }
+            .tex{
+                padding: 1vw;
+            }
+        }
+    }
+    .aboutUs{
+        background-image: url('../assets/backCool.jpeg');
+        background-position: center center; 
+        background-size: cover;
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        div{
+            width: 60%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 1vw;
+            border-radius: 5px;
+            @media screen and (max-width: 700px) {
+               width: 80%; 
+            }
+        }
+    }
+    .contacts{
+        min-height: 50vh;
+        background-color: $primaryCOlor;
+    }
+}
