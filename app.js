@@ -1,7 +1,8 @@
 var slide1 = document.getElementById('slide1');
 var slide2 = document.getElementById('slide2');
+var backs = document.querySelectorAll('.background');
 var side = 'back';
-
+var backgroundcount = 0;
 function smoothScroll(target, duration) {
     const x = document.getElementById('myTopnav');
     x.classList.remove('responsive');
@@ -57,8 +58,11 @@ function scrollAppear() {
          }
     }
    
-    var dissss = document.querySelector('.background');
-    dissss.style.transform = "translate3d(0px,"+ window.pageYOffset*0.5 + "px, 0px) scaleX(-1)";
+    var dissss = document.querySelectorAll('.background');
+    for(let back of dissss) {
+      back.style.transform = "translate3d(0px,"+ window.pageYOffset*0.5 + "px, 0px) scaleX(-1)";
+    }
+   
    
 }
 function tonatova() {
@@ -76,6 +80,23 @@ function Repeat() {
 
     }, 5000);
   }
+function background() {
+  for(let back of backs) {
+    back.style.opacity = "0";
+  }
+  backs[backgroundcount].style.opacity = "1"
+  backgroundcount ++;
+  if (backgroundcount ==4 ) {
+    backgroundcount = 0;
+  }
+}
+function backgroundChange(){
+  setTimeout(() => {
+    background();
+    backgroundChange();
+
+  }, 10000);
+}
 function functionSlide(){
     if (side === 'front') {
       slide1.classList.add('back');
@@ -93,4 +114,5 @@ function functionSlide(){
     }
   }
 Repeat();
+backgroundChange();
 window.addEventListener("scroll", scrollAppear);

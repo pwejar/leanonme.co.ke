@@ -1,5 +1,5 @@
 @import '_tonatov';
-@import '_tonatov';
+
 $primaryCOlor: black;
 *{
     box-sizing: border-box;
@@ -11,7 +11,7 @@ $primaryCOlor: black;
         position: absolute;
         top: 1vh;
         z-index: 4;
-        width: 100vw;
+        width: 100%;
         @media screen and (max-width: 700px) {
             display: none;
           }
@@ -22,7 +22,7 @@ $primaryCOlor: black;
         margin-top: 4vh;
         position: sticky;
         grid-template-columns: 1fr 1fr;
-        width: 100vw;
+        width: 100%;
         top: 0;
         left: 0;
         background: linear-gradient(to right, rgba(255,255,255,0),rgba(255,255,255,0.1), rgba(0,0,0,1),rgba(0,0,0,1));
@@ -30,9 +30,8 @@ $primaryCOlor: black;
     }
     .menu2 {
         position: sticky;
-        width: 100vw;
+        width: 100%;
         height: 3px;
-      
         top: 0;
         left: 0;
         z-index: 6;
@@ -40,16 +39,16 @@ $primaryCOlor: black;
     }
     .background{
         margin-top: -4vh;
-        background-image: url('../assets/kidos.jpg');
         background-position: center center;
         background-size: cover;
         min-height: 104vh;
         z-index: -10;
-        min-width: 100vw;
+        min-width: 100%;
         position: absolute;
-        background-color: rgba(red,0.5);
+        background-color: rgba(black,0.5);
         -webkit-transform: scaleX(-1);
         transform: scaleX(-1);
+        transition: opacity 0.8s ease-in-out;
     }
     .landing{
         position: relative;
@@ -57,7 +56,7 @@ $primaryCOlor: black;
         grid-template-columns: 1fr 1fr;
         align-items: center;
         height: 100vh;
-        width: 100vw;
+        width: 100%;
         padding: 0 5vw;
         background: linear-gradient(to bottom left, rgba(255, 0, 0, 0), rgb(49, 3, 3));
         @media screen and (max-width: 700px) {
@@ -94,6 +93,7 @@ $primaryCOlor: black;
                 border-radius: 5px;
                 grid-template-columns: 1fr 1fr;
                 background-color: rgba(230, 230, 230,.7);
+                align-items: center;
                 .imgio{
                     width: 10vw;
                     margin: auto auto;
@@ -133,7 +133,7 @@ $primaryCOlor: black;
         grid-template-columns: 1fr 1fr;
         background-color: $primaryCOlor;
         color: rgb(189, 189, 189);
-        width: 100vw;
+        width: 100%;
         padding: 2vw;
         @media screen and (max-width: 700px) {
             grid-template-columns: 1fr;  
@@ -212,7 +212,30 @@ $primaryCOlor: black;
         }
     }
     .contacts{
+        color: rgb(210, 220, 228);
+        position: relative;
         min-height: 50vh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding-top: 4vh;
         background-color: $primaryCOlor;
+        div{
+            position: absolute;
+            bottom: 10vh;
+            width: 100%;
+            cursor: pointer;
+            a{
+                color: #868585;
+            }
+        }
+        h3{
+            margin-bottom: 2vh;
+        }
+        a{
+            color: #fff;
+            text-decoration: none;
+            margin: 2px;
+        }
     }
 }
